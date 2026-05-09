@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_BASE = '/api/classes';
+// const API_BASE = '/api/classes';
+const API_BASE = 'https://class-project-rbe0.onrender.com/api/classes';
 
 export const classAPI = {
   getClassById: async (classId) => {
@@ -12,15 +13,18 @@ export const classAPI = {
   },
 
   getGlobalAnnouncements: async () => {
-    return axios.get('/api/announcements');
+    // return axios.get('/api/announcements');
+    return axios.get('https://class-project-rbe0.onrender.com/api/announcements');
+
   },
 
   createGlobalAnnouncement: async (data) => {
-    return axios.post('/api/announcements', data);
+    // return axios.post('/api/announcements', data);
+    return axios.post('https://class-project-rbe0.onrender.com/api/announcements', data);
   },
 
   deleteAnnouncement: async (id) => {
-    return axios.delete(`/api/announcements/${id}`);
+    return axios.delete(`https://class-project-rbe0.onrender.com/api/announcements/${id}`);
   },
 
   createAnnouncement: async (data, classId) => {
