@@ -1,26 +1,33 @@
 import axios from 'axios';
 
-const API_BASE = '/api/teacher';
+// const API_BASE = '/api/teacher';
+const BASE_URL = 'https://class-project-rbe0.onrender.com';
+const API_BASE = `${BASE_URL}/api/teacher`;
 
 export const teacherAPI = {
   getDashboard: async () => {
+    // return axios.get(`${API_BASE}/dashboard`);
     return axios.get(`${API_BASE}/dashboard`);
   },
 
   createClass: async (data) => {
-    return axios.post('/api/classes', data);
+    // return axios.post('/api/classes', data);
+    return axios.post(`${BASE_URL}/api/classes`, data);
   },
 
   getClasses: async () => {
-    return axios.get('/api/classes?teacher=me');
+    // return axios.get('/api/classes?teacher=me');
+    return axios.get(`${BASE_URL}/api/classes?teacher=me`);
   },
 
   deleteClass: async (id) => {
-    return axios.delete(`/api/classes/${id}`);
+    // return axios.delete(`/api/classes/${id}`);
+    return axios.delete(`${BASE_URL}/api/classes/${id}`);
   },
 
   updateClass: async (id, data) => {
-    return axios.put(`/api/classes/${id}`, data);
+    // return axios.put(`/api/classes/${id}`, data);
+    return axios.put(`${BASE_URL}/api/classes/${id}`, data);
   },
 
   uploadMaterial: async (classId, file, title, description) => {
@@ -29,7 +36,7 @@ export const teacherAPI = {
     formData.append('title', title);
     if (description) formData.append('description', description);
 
-    return axios.post(`/api/materials/${classId}`, formData, {
+    return axios.post(`${BASE_URL}/api/materials/${classId}`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -37,33 +44,39 @@ export const teacherAPI = {
   },
 
   getMaterials: async (classId) => {
-    return axios.get(`/api/materials/${classId}`);
+    // return axios.get(`/api/materials/${classId}`);
+    return axios.get(`${BASE_URL}/api/materials/${classId}`);
   },
 
   createAssignment: async (data) => {
     // If data is FormData (has file), let axios handle headers
     if (data instanceof FormData) {
-      return axios.post('/api/assignments', data, {
+      return axios.post(`${BASE_URL}/api/assignments`, data, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
     }
-    return axios.post('/api/assignments', data);
+    return axios.post(`${BASE_URL}/api/assignments`, data);
   },
 
   getAllAssignments: async () => {
-    return axios.get('/api/teacher/assignments');
+    // return axios.get('/api/teacher/assignments');
+    return axios.get(`${BASE_URL}/api/teacher/assignments`);
   },
 
   getAssignments: async (classId) => {
-    return axios.get(`/api/assignments/class/${classId}`);
+    // return axios.get(`/api/assignments/class/${classId}`);
+    return axios.get(`${BASE_URL}/api/assignments/class/${classId}`);
   },
 
   getSubmissions: async (assignmentId) => {
-    return axios.get(`/api/assignments/${assignmentId}/submissions`);
+    // return axios.get(`/api/assignments/${assignmentId}/submissions`);
+    return axios.get(`${BASE_URL}/api/assignments/${assignmentId}/submissions`);
   },
 
   gradeSubmission: async (submissionId, grade, feedback) => {
-    return axios.put(`/api/assignments/submission/${submissionId}`, { grade, feedback });
+    // return axios.put(`/api/assignments/submission/${submissionId}`, { grade, feedback });
+    return axios.put(`${BASE_URL}/api/assignments/submission/${submissionId}`, { grade, feedback });
+
   },
 
   startLiveClass: async (classId) => {
@@ -72,7 +85,9 @@ export const teacherAPI = {
   },
 
   markAttendance: async (data) => {
-    return axios.post('/api/attendance', data);
+    // return axios.post('/api/attendance', data);
+    return axios.post(`${BASE_URL}/api/attendance`, data);
+
   },
 
   getClassAttendance: async (classId, date) => {
@@ -80,11 +95,13 @@ export const teacherAPI = {
     if (date) {
       url += `?date=${date}`;
     }
-    return axios.get(url);
+    // return axios.get(url);
+    return axios.get(`${BASE_URL}${url}`);
   },
 
   getClassStudents: async (classId) => {
-    const response = await axios.get(`/api/classes/${classId}`);
+    // const response = await axios.get(`/api/classes/${classId}`);
+    const response = await axios.get(`${BASE_URL}/api/classes/${classId}`);
     // Return accessing students array from the class object
     return { data: response.data.students };
   }
