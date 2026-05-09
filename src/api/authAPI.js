@@ -9,7 +9,8 @@ axios.interceptors.request.use((config) => {
   return config;
 });
 
-const API_BASE = '/api/auth';
+// const API_BASE = '/api/auth';
+const API_BASE = 'https://class-project-rbe0.onrender.com/api/auth';
 
 export const authAPI = {
   login: async (email, password) => {
