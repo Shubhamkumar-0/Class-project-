@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 // const API_BASE = '/api/student';
-const API_BASE = 'https://class-project-rbe0.onrender.com/api/student';
+const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE = `${BASE_URL}/api/student`;
 
 export const studentAPI = {
   getDashboard: async () => {
@@ -21,17 +22,17 @@ export const studentAPI = {
   },
 
   getMaterials: async (classId) => {
-    return axios.get(`https://class-project-rbe0.onrender.com/api/materials/${classId}`);
+    return axios.get(`${BASE_URL}/api/materials/${classId}`);
   },
 
   getAssignments: async (classId) => {
-    return axios.get(`https://class-project-rbe0.onrender.com/api/assignments/class/${classId}`);  
+    return axios.get(`${BASE_URL}/api/assignments/class/${classId}`);  
   },
 
   submitAssignment: async (assignmentId, file) => {
     const formData = new FormData();
     formData.append('file', file);
-    return axios.post(`https://class-project-rbe0.onrender.com/api/assignments/${assignmentId}/submit`, formData, {
+    return axios.post(`${BASE_URL}/api/assignments/${assignmentId}/submit`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -40,7 +41,7 @@ export const studentAPI = {
 
   getAttendance: async () => {
     // return axios.get('/api/attendance/student');
-    return axios.get('https://class-project-rbe0.onrender.com/api/attendance/student');
+    return axios.get(`${BASE_URL}/api/attendance/student`);
     
   },
 
