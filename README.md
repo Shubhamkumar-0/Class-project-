@@ -1,16 +1,217 @@
-# React + Vite
+# E-Learning Platform for Rural Areas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack MERN-based E-Learning Platform designed to provide accessible and interactive online education for rural and underserved students. The platform enables teachers to manage classes, assignments, attendance, study materials, and announcements while students can attend live classes, submit assignments, track attendance, and access learning resources.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+### Authentication & Authorization
+- JWT-based Authentication
+- Secure Login & Registration
+- Role-Based Access Control
+  - Teacher Dashboard
+  - Student Dashboard
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Teacher Module
+- Create Classes
+- Create Assignments
+- Upload Study Materials
+- Conduct Live Classes
+- Mark Attendance
+- View Student Submissions
+- Post Announcements
 
-## Expanding the ESLint configuration
+### Student Module
+- Join Live Classes
+- View Course Materials
+- Submit Assignments
+- Track Attendance
+- View Announcements
+- Access Dashboard Analytics
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### File Management
+- Upload Learning Materials
+- Assignment Submission Support
+- Secure File Storage
+
+### Dashboard Features
+- Personalized Dashboard
+- Attendance Reports
+- Assignment Tracking
+- Class Management
+
+---
+
+## Technology Stack
+
+### Frontend
+- React.js
+- JavaScript
+- HTML5
+- CSS3
+
+### Backend
+- Node.js
+- Express.js
+
+### Database
+- MongoDB
+- Mongoose
+
+### Authentication
+- JWT (JSON Web Token)
+
+### File Upload
+- Multer
+
+### Version Control
+- Git
+- GitHub
+
+---
+
+## Project Structure
+
+```
+Class-project
+│
+├── src
+│   ├── pages
+│   │   ├── auth
+│   │   │   ├── Login.jsx
+│   │   │   └── Register.jsx
+│   │   │
+│   │   ├── teacher
+│   │   │   ├── TeacherDashboard.jsx
+│   │   │   ├── CreateClass.jsx
+│   │   │   ├── CreateAssignment.jsx
+│   │   │   ├── UploadMaterial.jsx
+│   │   │   ├── MarkAttendance.jsx
+│   │   │   ├── LiveClassTeacher.jsx
+│   │   │   └── ViewSubmissions.jsx
+│   │   │
+│   │   └── student
+│   │       ├── StudentDashboard.jsx
+│   │       ├── ClassList.jsx
+│   │       ├── Materials.jsx
+│   │       ├── StudentAssignments.jsx
+│   │       ├── AttendanceReport.jsx
+│   │       └── LiveClassStudent.jsx
+│   │
+│   └── components
+│       ├── Navbar.jsx
+│       ├── Sidebar.jsx
+│       ├── ChatWindow.jsx
+│       ├── VideoPlayer.jsx
+│       ├── FileUploader.jsx
+│       └── MaterialCard.jsx
+│
+└── backend
+    ├── controllers
+    ├── models
+    ├── routes
+    └── middleware
+```
+
+---
+
+## Database Models
+
+- User
+- Class
+- Assignment
+- Submission
+- Material
+- Attendance
+- Announcement
+
+---
+
+## REST APIs
+
+### Authentication
+- User Registration
+- User Login
+- JWT Verification
+
+### Teacher APIs
+- Create Class
+- Create Assignment
+- Upload Material
+- Mark Attendance
+- Manage Announcements
+
+### Student APIs
+- View Classes
+- Submit Assignments
+- Access Materials
+- View Attendance
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+```
+
+### Install Frontend Dependencies
+
+```bash
+cd frontend
+npm install
+```
+
+### Install Backend Dependencies
+
+```bash
+cd backend
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
+
+### Run Backend
+
+```bash
+npm start
+```
+
+### Run Frontend
+
+```bash
+npm run dev
+```
+
+---
+
+## Future Enhancements
+
+- Video Conferencing Integration
+- AI-Based Learning Assistant
+- Course Progress Analytics
+- Mobile Application
+- Real-Time Notifications
+- Online Quiz System
+- Certificate Generation
+
+---
+
+## Author
+
+Shubham Kumar
+
+B.Tech Computer Science & Engineering
+
+MERN Stack Developer | Full Stack Developer
