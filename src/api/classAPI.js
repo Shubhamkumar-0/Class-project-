@@ -1,7 +1,7 @@
 import axios from 'axios';
+import { BASE_URL } from './config';
 
 // const API_BASE = '/api/classes';
-const BASE_URL = import.meta.env.VITE_API_URL || 'https://class-project-rbe0.onrender.com';
 const API_BASE = `${BASE_URL}/api/classes`;
 
 export const classAPI = {

@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
 import { studentAPI } from '@/api/studentAPI';
+import { BASE_URL } from '@/api/config';
 import { FileUploader } from '@/components/FileUploader';
 import { toast } from '@/hooks/use-toast';
 import { ClipboardList, Calendar, CheckCircle, AlertCircle, Clock, Search, Upload, FileText } from 'lucide-react';
@@ -20,6 +21,11 @@ export default function StudentAssignments() {
     const [selectedAssignment, setSelectedAssignment] = useState(null);
     const [submissionFile, setSubmissionFile] = useState(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const getFileUrl = (url) => {
+        if (!url) return '';
+        return url.startsWith('http') ? url : `${BASE_URL}${url}`;
+    };
 
     useEffect(() => {
         const fetchAssignments = async () => {
@@ -135,7 +141,7 @@ export default function StudentAssignments() {
                                                         </Button>
                                                         {assignment.submission?.fileUrl && (
                                                             <a
-                                                                href={assignment.submission.fileUrl}
+                                                                href={getFileUrl(assignment.submission.fileUrl)}
                                                                 target="_blank"
                                                                 rel="noopener noreferrer"
                                                                 className="w-full"
@@ -154,7 +160,7 @@ export default function StudentAssignments() {
                                                     </Button>
                                                 )}
                                                 {assignment.attachmentUrl ? (
-                                                    <a href={assignment.attachmentUrl} target="_blank" rel="noopener noreferrer" className="w-full">
+                                                    <a href={getFileUrl(assignment.attachmentUrl)} target="_blank" rel="noopener noreferrer" className="w-full">
                                                         <Button variant="outline" className="w-full">
                                                             View Attachment
                                                         </Button>

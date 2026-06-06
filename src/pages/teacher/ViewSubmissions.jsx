@@ -11,6 +11,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { teacherAPI } from '@/api/teacherAPI';
+import { BASE_URL } from '@/api/config';
 import { toast } from '@/hooks/use-toast';
 import { CheckCircle, Clock, AlertCircle, Search, Download, Eye } from 'lucide-react';
 
@@ -253,13 +254,13 @@ export default function ViewSubmissions() {
                             <Button
                               variant="ghost"
                               size="icon"
-                              onClick={() => window.open(`http://localhost:5000${submission.fileUrl}`, '_blank')}
+                              onClick={() => window.open(`${BASE_URL}${submission.fileUrl}`, '_blank')}
                               title="View Submission"
                             >
                               <Eye className="h-4 w-4" />
                             </Button>
                             <Button variant="ghost" size="icon" asChild title="Download Submission">
-                              <a href={`http://localhost:5000${submission.fileUrl}`} download target="_blank" rel="noopener noreferrer">
+                              <a href={`${BASE_URL}${submission.fileUrl}`} download target="_blank" rel="noopener noreferrer">
                                 <Download className="h-4 w-4" />
                               </a>
                             </Button>

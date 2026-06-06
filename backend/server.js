@@ -7,7 +7,7 @@ dotenv.config();
 connectDB();
 const app = express();
 app.use(cors({
-    origin: ['https://class-project-swart.vercel.app', 'http://localhost:5173'],
+    origin: true,
     credentials: true
 }));
 

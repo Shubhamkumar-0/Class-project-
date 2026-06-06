@@ -4,6 +4,7 @@ import { Sidebar } from '@/components/Sidebar';
 import { MaterialCard } from '@/components/MaterialCard';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { studentAPI } from '@/api/studentAPI';
+import { BASE_URL } from '@/api/config';
 
 export default function Materials() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -75,7 +76,7 @@ export default function Materials() {
                   id={m._id}
                   title={m.title}
                   type={m.type && m.type.includes('pdf') ? 'pdf' : m.type && m.type.includes('video') ? 'video' : 'other'}
-                  downloadUrl={`http://localhost:5000${m.fileUrl}`} // prepend backend URL
+                  downloadUrl={`${BASE_URL}${m.fileUrl}`} // prepend backend URL
                   uploadedAt={new Date(m.createdAt).toLocaleDateString()}
                 />
               ))}

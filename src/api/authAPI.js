@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { BASE_URL } from './config';
 
 // Add a request interceptor to attach the token
 axios.interceptors.request.use((config) => {
@@ -10,7 +11,7 @@ axios.interceptors.request.use((config) => {
 });
 
 // const API_BASE = '/api/auth';
-const API_BASE = (import.meta.env.VITE_API_URL || 'https://class-project-rbe0.onrender.com') + '/api/auth';
+const API_BASE = `${BASE_URL}/api/auth`;
 
 export const authAPI = {
   login: async (email, password) => {
